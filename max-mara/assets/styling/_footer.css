@@ -1,0 +1,11 @@
+body > footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+body > footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

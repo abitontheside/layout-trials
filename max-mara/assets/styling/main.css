@@ -1,3 +1,7 @@
 /* @TODO - do this properly for build version */
 
+@import url('_variables.css');
 @import url('_layout.css');
+@import url('_main-navigation.css');
+@import url('_footer.css');
+@import url('_slides.css');

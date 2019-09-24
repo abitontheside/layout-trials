@@ -1,0 +1,13 @@
+.slides {
+    width: 20vw;
+    overflow: hidden;
+    display: flex;
+}
+
+.slides img {
+    max-height: 100vh;
+}
+
+.home-item.item-01 .slides {
+    max-height: 40vh;
+}
