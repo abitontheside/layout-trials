@@ -1,7 +1,18 @@
 body > nav ul {
 	list-style: none;
 	margin: 0;
-	padding: 0 1rem;
+	padding: 44px 1rem 0;
 	display: flex;
 	justify-content: space-between;
+}
+
+body > nav a {
+	color: var(--text-color);
+	text-decoration: none;
+}
+
+body > nav a:hover,
+body > nav a:focus,
+body > nav a:active {
+	text-decoration: underline;
 }

@@ -5,12 +5,7 @@ body {
     min-height: 100vh;
 }
 
-html {
-    background-color: #fff;
-}
-
 body {
-    font-size: 16px;
     display: grid;
     grid-template-columns: 1.5fr 0.5fr 4fr 1fr 1fr 3fr 1fr;
     grid-template-areas:
@@ -21,13 +16,13 @@ body {
     "footer .            maincontentb .     sidecontent sidecontent  extra"
     "small  small        small        small small       small        small";
 
+    background-color: #fff;
     background-image: 
         linear-gradient(var(--light-grey), var(--light-grey)), 
-        linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), 
         linear-gradient(var(--dark-grey), var(--dark-grey));
-    background-size: calc((2/12) * 100%) 100%, calc((6/12) * 100%) 100%, calc((4/12) * 100%) 100%;
+    background-size: calc((2/12) * 100%) 100%, calc((4/12) * 100%) 100%;
     background-repeat: no-repeat;
-    background-position: top left, center center, top right;
+    background-position: top left, top right;
 }
 
 body > header {

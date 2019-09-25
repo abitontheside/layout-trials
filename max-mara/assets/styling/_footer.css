@@ -4,6 +4,18 @@ body > footer {
 	justify-content: space-between;
 }
 
+body > footer .logo a {
+	display: block;
+	max-width: 120px;
+	margin: 20px auto 0;
+}
+
+body > footer .logo svg {
+	display: inline-block;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
 body > footer ul {
 	list-style: none;
 	margin: 0;
