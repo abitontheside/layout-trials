@@ -1,0 +1,11 @@
+/* Home */
+header h1 {
+    text-indent: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h1 + p {
+    margin: 0 0 1.5rem;
+    text-indent: 0.5rem;
+    text-transform: uppercase;
+}

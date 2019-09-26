@@ -8,6 +8,24 @@
     max-height: 100vh;
 }
 
+.home-item.item-01 {
+    display: grid;
+    grid-template-columns: calc((100vw / 12) * 0.5) auto;
+}
+
+.home-item.item-01 h2 {
+    background-color: var(--dark-grey);
+    color: #fff;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: center;
+    line-height: calc((100vw / 12) * 0.5);
+    height: 100%;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+}
+
 .home-item.item-01 .slides {
     max-height: 40vh;
 }
