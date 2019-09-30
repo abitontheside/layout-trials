@@ -1,0 +1,54 @@
+body>[role="search"] {
+    padding-top: 33px;
+}
+
+body>[role="search"] fieldset {
+    padding: 0;
+    border: none;
+    text-align: right;
+}
+
+body>[role="search"] [type="search"] {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+    color: #fff;
+    box-shadow: none;
+    background: none;
+    height: 44px;
+    width: calc(90% - 44px - 0.5em);
+    max-width: 230px;
+    opacity: 0;
+    transition: 0.5s opacity ease-out;
+    vertical-align: bottom;
+}
+
+body>[role="search"] [type="search"]:focus {
+    opacity: 0.8;
+}
+
+body>[role="search"] [type="submit"] {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    margin: 0 10% 0 0;
+    border: none;
+    box-shadow: none;
+    background: none;
+    height: 44px;
+    width: 44px;
+    color: var(--light-grey);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+}
+
+body>[role="search"] [type="submit"] svg {
+    display: block;
+    width: 30px;
+}
