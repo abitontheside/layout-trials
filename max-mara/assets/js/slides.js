@@ -13,7 +13,7 @@
     }
 
     function setup() {
-        var slidesets = document.querySelectorAll('.slides-container');
+        const slidesets = document.querySelectorAll('.slides-container');
 
         for(const slideset of slidesets) {
             let button = document.createElement('button');
@@ -23,6 +23,17 @@
             slideset.appendChild(button);
 
             button.addEventListener('click', moveSlider);
+
+            // transition listener
+            slideset.querySelector('.slide').addEventListener('transitionend', function(event) {
+                console.log(event);
+                console.log('getComputedStyle', getComputedStyle(event.target)['order']);
+                let timeout = setTimeout(function() {
+                    slideset.parentNode.classList.remove('slideset-slide');
+                    event.target.style.order = parseInt(getComputedStyle(event.target)['order'], 10) + 1;
+                    clearTimeout(timeout);
+                }, 10);
+            });
         };
     }
 
