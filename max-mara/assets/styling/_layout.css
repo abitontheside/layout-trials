@@ -59,6 +59,9 @@ body > footer {
 
 body > small {
     grid-area: small;
+    align-self: flex-end;
+    text-align: center;
+    padding: 11px calc((4/12) * 100%) 11px calc((2/12) * 100%); /* 0.5 * line-height == 11px */
 }
 
 /*img {
