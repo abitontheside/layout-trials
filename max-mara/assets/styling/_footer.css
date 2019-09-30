@@ -18,6 +18,21 @@ body > footer .logo svg {
 
 body > footer ul {
 	list-style: none;
-	margin: 0;
+	max-width: 120px;
+	margin: 0 auto;
 	padding: 0;
+	text-align: center;
+}
+
+body > footer ul svg {
+	display: inline-block;
+	width: 30px;
+}
+
+body > footer a:link,
+body > footer a:visited,
+body > footer a:hover,
+body > footer a:focus,
+body > footer a:active {
+	color: var(--text-color);
 }
