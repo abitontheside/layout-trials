@@ -1,32 +1,53 @@
 (function () {
+    function setNextSlide(trigger, currentSlide) {
+        let nextSlide = currentSlide.nextElementSibling;
+
+        if (nextSlide) {
+            trigger.href = '#' + nextSlide.id;
+            return;
+        }
+
+        trigger.href = '#' + currentSlide.parentNode.querySelector('.slide').id;
+    }
+
     function moveSlider(event) {
-    //     console.log(event);
-    //     const slideset = event.target.parentNode;
+        event.preventDefault();
 
-    //     if (!slideset.classList.contains('slides-container')) {
-    //         return;
-    //     }
-
-    //     const slidesContainer = slideset.querySelector('.slides');
-
-    //     slidesContainer.classList.add('slideset-slide');
-
-        let hashval = event.target.getAttribute('href')
-        let target = document.querySelector(hashval)
+        let hashval = event.target.getAttribute('href');
+        let target = document.querySelector(hashval);
         target.scrollIntoView({
             behavior: 'smooth',
-            block: 'start'
-        })
-        history.pushState(null, null, hashval)
-        event.preventDefault()
+            block: 'nearest',
+            inline: 'start'
+        });
+        history.pushState(null, null, hashval);
+
+        setNextSlide(event.target, target);
+    }
+
+    function checkHash() {
+        const hash = location.hash;
+
+        if (!hash || hash === '#') {
+            return;
+        }
+
+        let slideset = Array.prototype.filter.call(document.querySelectorAll('.slides-container'), function(element) {
+            // return element.querySelector(hash).length;
+            console.log('hash', hash);
+            console.log('element', element);
+        });
+
+        console.log('has slideset', slideset);
     }
 
     function setup() {
         const slidesets = document.querySelectorAll('.slides-container');
 
-        for(const slideset of slidesets) {
+        // for(const slideset of slidesets) {
+        for (let [i, slideset] of Object.entries(slidesets)) {
             const slides = slideset.querySelectorAll('.slide');
-            const slideIdPrefix = slideset.getAttribute('id') ? slideset.getAttribute('id') : 'slideset_' + Date.now();
+            const slideIdPrefix = slideset.getAttribute('id') ? slideset.getAttribute('id') : 'slideset_' + i;
 
             if (Object.entries) {
                 for (let [i, slide] of Object.entries(slides)) {
@@ -41,26 +62,9 @@
             slideset.appendChild(anchor);
 
             anchor.addEventListener('click', moveSlider);
-
-    //         let button = document.createElement('button');
-    //         button.type = 'button';
-    //         button.textContent = 'nxt';
-    //         button.className = 'slideset-button';
-    //         slideset.appendChild(button);
-
-    //         button.addEventListener('click', moveSlider);
-
-    //         // transition listener
-    //         slideset.querySelector('.slide').addEventListener('transitionend', function(event) {
-    //             console.log(event);
-    //             console.log('getComputedStyle', getComputedStyle(event.target)['order']);
-    //             let timeout = setTimeout(function() {
-    //                 slideset.parentNode.classList.remove('slideset-slide');
-    //                 event.target.style.order = parseInt(getComputedStyle(event.target)['order'], 10) + 1;
-    //                 clearTimeout(timeout);
-    //             }, 10);
-    //         });
         };
+
+        checkHash();
     }
 
     if (document.readyState != 'loading') {

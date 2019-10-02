@@ -10,7 +10,7 @@
 
 .slides {
     overflow: hidden;
-    overflow-x: auto;
+    /*overflow-x: auto;*/
 }
 
 .slides .slide {
@@ -19,6 +19,7 @@
     width: 100%;
     transition: 1s transform ease-in;
     order: 1;
+    overflow: hidden;
 }
 
 .slideset-slide .slide {
@@ -31,6 +32,8 @@
     right: 5%;
     z-index: 1;
     display: flex;
+    bottom: 20%;
+    top: auto;
 }
 
 .slides dt span {
@@ -87,24 +90,28 @@
 
 .item-01 .slides .slide:nth-child(2n + 1) dt {
     bottom: 20%;
+    top: auto;
     align-items: flex-start;
     justify-content: flex-end;
 }
 
-.item-01 .slides .slide:nth-child(3n + 1) dt {
+.item-01 .slides .slide:nth-child(2n + 2) dt {
     top: 20%;
+    bottom: auto;
     align-items: flex-end;
     justify-content: flex-start;
 }
 
 .item-02 .slides .slide:nth-child(2n + 1) dt {
     top: 20%;
+    bottom: auto;
     align-items: flex-end;
     justify-content: flex-start;
 }
 
-.item-02 .slides .slide:nth-child(3n + 1) dt {
+.item-02 .slides .slide:nth-child(2n + 2) dt {
     bottom: 20%;
+    top: auto;
     align-items: flex-start;
     justify-content: flex-end;
 }
