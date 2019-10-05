@@ -25,22 +25,6 @@
         setNextSlide(event.target, target);
     }
 
-    function checkHash() {
-        const hash = location.hash;
-
-        if (!hash || hash === '#') {
-            return;
-        }
-
-        let slideset = Array.prototype.filter.call(document.querySelectorAll('.slides-container'), function(element) {
-            // return element.querySelector(hash).length;
-            console.log('hash', hash);
-            console.log('element', element);
-        });
-
-        console.log('has slideset', slideset);
-    }
-
     function setup() {
         const slidesets = document.querySelectorAll('.slides-container');
 
@@ -63,8 +47,6 @@
 
             anchor.addEventListener('click', moveSlider);
         };
-
-        checkHash();
     }
 
     if (document.readyState != 'loading') {
