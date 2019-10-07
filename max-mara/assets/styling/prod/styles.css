@@ -149,7 +149,20 @@ body > [role="search"] {
 body > footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative; }
+  body > footer::before, body > footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 85.5%;
+    width: 1px; }
+  body > footer::before {
+    background: #393c49;
+    left: 5vw; }
+  body > footer::after {
+    background: #a3b1c1;
+    left: calc(96vw - 1px); }
   body > footer a:link,
   body > footer a:visited,
   body > footer a:hover,
@@ -172,7 +185,7 @@ body > footer {
     text-align: center; }
     body > footer ul svg {
       display: inline-block;
-      width: 30px; }
+      width: 24px; }
 
 .slides-container {
   position: relative; }

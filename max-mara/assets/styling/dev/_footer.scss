@@ -2,6 +2,26 @@ body > footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	position: relative;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		height: 85.5%;
+		width: 1px;
+	}
+
+	&::before {
+		background: $dark-grey;
+		left: 5vw;
+	}
+
+	&::after {
+		background: $light-grey;
+		left: calc(96vw - 1px);
+	}
 
 	a:link,
 	a:visited,
@@ -34,7 +54,7 @@ body > footer {
 
 		svg {
 			display: inline-block;
-			width: 30px;
+			width: 24px;
 		}
 	}
 }
