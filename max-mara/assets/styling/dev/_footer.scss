@@ -1,0 +1,40 @@
+body > footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	a:link,
+	a:visited,
+	a:hover,
+	a:focus,
+	a:active {
+		color: $text-color;
+	}
+
+	.logo {
+		a {
+			display: block;
+			max-width: 120px;
+			margin: 20px auto 0;
+		}
+
+		svg {
+			display: inline-block;
+			max-width: 100%;
+			vertical-align: middle;
+		}
+	}
+
+	ul {
+		list-style: none;
+		max-width: 120px;
+		margin: 0 auto;
+		padding: 0;
+		text-align: center;
+
+		svg {
+			display: inline-block;
+			width: 30px;
+		}
+	}
+}

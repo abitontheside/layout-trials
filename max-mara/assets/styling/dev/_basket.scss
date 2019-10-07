@@ -1,0 +1,31 @@
+body > .basket {
+    padding-top: 33px;
+
+    p {
+        margin: 0;
+        text-align: center;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        width: 44px;
+        vertical-align: bottom;
+
+        &:link,
+        &:visited,
+        &:hover,
+        &:focus,
+        &:active {
+            margin: 0;
+            color: $light-grey;
+        }
+
+        svg {
+            display: block;
+            width: 28px;
+        }
+    }
+}

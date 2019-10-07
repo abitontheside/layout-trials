@@ -19,8 +19,8 @@ body {
 
     background-color: #fff;
     background-image: 
-        linear-gradient(var(--light-grey), var(--light-grey)), 
-        linear-gradient(var(--dark-grey), var(--dark-grey));
+        linear-gradient(#{$light-grey}, #{$light-grey}), 
+        linear-gradient(#{$dark-grey}, #{$dark-grey});
     background-size: calc((2/12) * 100%) 100%, calc((4/12) * 100%) 100%;
     background-repeat: no-repeat;
     background-position: top left, top right;
@@ -67,9 +67,9 @@ body > small {
     grid-area: small;
     align-self: flex-end;
     text-align: center;
-    padding: 11px calc((4/12) * 100%) 11px calc((2/12) * 100%); /* 0.5 * line-height == 11px */
+    padding: 11px calc((4/12) * 100%) 11px calc((2/12) * 100%);// 0.5 * line-height == 11px
 }
 
-/*img {
-    max-width: 100%;
-}*/
+// img {
+//    max-width: 100%;
+// }

@@ -1,0 +1,18 @@
+// Home
+header {
+    h1 {
+        text-indent: 2.25rem;
+        margin-bottom: 0.5rem;
+
+        + p {
+            margin: 0 0 1.5rem;
+            text-indent: 2.25rem;
+            text-transform: uppercase;
+            opacity: 0.75;
+        }
+    }
+}
+
+.home-blurb {
+    opacity: 0.5;
+}
