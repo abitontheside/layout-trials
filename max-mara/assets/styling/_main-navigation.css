@@ -1,7 +1,7 @@
 body > nav ul {
 	list-style: none;
 	margin: 0;
-	padding: 44px 1rem 0;
+	padding: 44px 5% 0;
 	display: flex;
 	justify-content: space-between;
 }
