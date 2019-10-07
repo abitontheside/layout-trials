@@ -62,7 +62,7 @@
     display: inline-block;
     position: absolute;
     background: #fff;
-    border: none;
+    border: 2px solid #fff;
     border-radius: 23px;
     box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.15);
     left: 0;
@@ -74,6 +74,22 @@
     padding: 0;
     margin: 0 0 -23px -23px;
     text-decoration: none;
+    z-index: 1;
+}
+
+.slideset-button:hover,
+.slideset-button:focus,
+.slideset-button:active {
+    outline: none;
+}
+
+.slideset-button:hover,
+.slideset-button:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.slideset-button:active {
+    border-color: rgba(0, 0, 0, 0.8);
 }
 
 .slideset-slide .slideset-button {

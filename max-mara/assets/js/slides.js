@@ -1,4 +1,27 @@
 (function () {
+// <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" 
+// stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+// <polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+    function getIcon() {
+        const svgNS = 'http://www.w3.org/2000/svg';
+        let svg = document.createElementNS(svgNS, 'svg');
+        let polygon = document.createElementNS(svgNS, 'polygon');
+        // let polygon = document.createElementNS(svgNS, 'polygon');
+        svg.setAttributeNS(null, 'width', '48');
+        svg.setAttributeNS(null, 'height', '48');
+        svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+        // svg.setAttributeNS(null, 'stroke', 'none');
+        svg.setAttributeNS(null, 'fill', 'currentColor');
+        polygon.setAttributeNS(null, 'points', '5 3 19 12 5 21 5 3');
+
+        svg = svg.appendChild(polygon);
+
+console.log(svg);
+debugger;
+
+        return svg.appendChild(polygon);
+    }
+    
     function setNextSlide(trigger, currentSlide) {
         let nextSlide = currentSlide.nextElementSibling;
 
@@ -41,7 +64,8 @@
 
             let anchor = document.createElement('a');
             anchor.href = '#' + slideIdPrefix + '_1'; // initial is 2nd slide
-            anchor.textContent = 'nxt';
+            // anchor.textContent = 'nxt';
+            anchor.appendChild = getIcon();
             anchor.className = 'slideset-button';
             slideset.appendChild(anchor);
 
