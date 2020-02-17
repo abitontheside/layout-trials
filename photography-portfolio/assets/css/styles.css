@@ -1,0 +1,289 @@
+/* desktop >767px
+tablet >377px <768px */
+
+:root {
+    --items: 1;
+    /* default value for number of items */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+/* buttons */
+.item-buttons {
+    display: flex;
+    text-transform: uppercase;
+}
+
+.item-buttons a {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-self: flex-end;
+    padding-right: 38px;
+    height: 38px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.item-buttons a::after {
+    display: block;
+    height: 38px;
+    width: 38px;
+    min-width: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.item-buttons a:not(.button-full) {
+    width: 38px;
+}
+
+.item-buttons a:not(.button-full)::after {
+    order: -1;
+    position: relative;
+}
+
+.primary-button {
+    background-color: #e24e27;
+    color: #fff;
+}
+
+.secondary-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.primary-button:not(.button-full)::after {
+    content: '\25bc'; /* down pointing triangle */
+}
+
+.secondary-button:not(.button-full)::after {
+    content: '\25b2'; /* up pointing triangle */
+}
+
+.button-full::after {
+    content: '\25b6'; /* right pointing triangle */
+}
+
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    counter-set: items var(--items) section;
+}
+
+main > *:not(footer) {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-column: 1;
+}
+
+main > header,
+main>header + .item {
+    grid-row: 1;
+}
+
+main > header {
+    align-content: flex-start;
+    height: auto;
+    width: 30vw;
+    z-index: 20;
+    position: absolute;
+}
+
+main > header + .item {
+    z-index: 10;
+}
+
+main > .item,
+main > footer {
+    z-index: 5;
+}
+
+.item {
+    background-color: #000;
+    color: #fff;
+    scroll-snap-align: center;
+}
+
+.item-text {
+    z-index: 1;
+}
+
+.item h2 {
+    font-size: 0.75em;
+    font-weight: normal;
+    text-transform: uppercase;
+    width: 100%;
+    line-height: inherit;
+}
+
+.item h2 ~ * {
+    font-size: 0.75em;
+}
+
+.item-text > div {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(48, 47, 46, 0.8);
+    mix-blend-mode: multiply;
+    padding: 3vh 2.5vw;
+}
+
+.item-text > div * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.item-text > div > * + * {
+    margin-top: 8px;
+}
+
+.item picture {
+    height: 100vh;
+    width: 100vw;
+}
+
+.item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.item + .item:not(:last-of-type) {
+    grid-template-rows: auto max-content;
+}
+
+.item + .item:not(:last-of-type) picture {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.item + .item:not(:last-of-type) .item-text {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.item ~ .item h2::before {
+    counter-increment: section;
+    content: counter(section) " / " counter(items);
+}
+
+main > header + .item {
+    grid-template-columns: 30vw auto;
+}
+
+main > header + .item picture {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+}
+
+main>header + .item .item-text {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+main>header + .item .item-text div {
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+main>header svg {
+    max-width: 300px;
+    height: auto;
+}
+
+main > footer {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    height: 40px;
+    width: 40px;
+}
+
+main > footer a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+main > footer svg {
+    width: 25px;
+    height: auto;
+}
+
+/* loading spinner */
+picture {
+    position: relative;
+    font-size: 10px;
+}
+
+picture img {
+    position: relative;
+}
+
+picture::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 0;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    color: #fff;
+    opacity: 0.5;
+    animation: spinner 1.3s infinite linear;
+    transform-origin: 0 0;
+    transform: translateZ(0);
+}
+
+@keyframes spinner {
+    0%, 100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}
