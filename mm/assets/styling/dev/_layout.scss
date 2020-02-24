@@ -1,0 +1,75 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr 4fr 1fr 1fr 3fr 1fr;
+    grid-template-rows: max-content max-content minmax(auto, 40vh) auto;
+    grid-template-areas:
+    "footer .            menu         menu  menu        search      basket"
+    "footer header       header       .     sidecontent sidecontent ."
+    "footer maincontenta maincontenta .     sidecontent sidecontent ."
+    "footer .            maincontentb .     sidecontent sidecontent  extra"
+    "small  small        small        small small       small        small";
+
+    background-color: #fff;
+    background-image: 
+        linear-gradient(#{$light-grey}, #{$light-grey}), 
+        linear-gradient(#{$dark-grey}, #{$dark-grey});
+    background-size: calc((2/12) * 100%) 100%, calc((4/12) * 100%) 100%;
+    background-repeat: no-repeat;
+    background-position: top left, top right;
+}
+
+body > header {
+    grid-area: header;
+    padding-top: 10%;
+}
+
+body > .item-01 {
+    grid-area: maincontenta;
+    padding-top: 5%;
+}
+
+body > .item-02 {
+    grid-area: sidecontent;
+    padding-top: 10%;
+}
+
+body > .home-blurb {
+    grid-area: maincontentb;
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+body > nav {
+    grid-area: menu;
+}
+
+body > [role="search"] {
+    grid-area: search;
+}
+
+body > .basket {
+    grid-area: basket;
+}
+
+body > footer {
+    grid-area: footer;
+}
+
+body > small {
+    grid-area: small;
+    align-self: flex-end;
+    text-align: center;
+    padding: 11px calc((4/12) * 100%) 11px calc((2/12) * 100%);// 0.5 * line-height == 11px
+}
+
+// img {
+//    max-width: 100%;
+// }
