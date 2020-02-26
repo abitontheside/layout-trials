@@ -66,11 +66,17 @@ body > nav li + li {
 }
 
 body > main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 }
 
-body > main > * {
-    flex: 1 0 calc(50% - 2vw);
+main figure {
+    padding: 0 7.5% 7.5%;
+    margin: 0;
 }
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
